@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions for validating entities and types
+    function isValidId(id) {
+      return id is string && id.size() <= 128;
+    }
+
+    function isValidEscortProfile(data) {
+      return data.id is string 
+        && data.userId is string
+        && data.name is string 
+        && data.name.size() <= 100
+        && data.description is string
+        && data.description.size() <= 2000
+        && data.services is list
+        && data.images is list;
+    }
+
+    function isValidMessage(data) {
+      return data.senderId is string 
+        && data.receiverId is string 
+        && data.text is string 
+        && data.text.size() <= 10000;
+    }
+
+    function isValidBlock(data) {
+      return data.blockerId is string 
+        && data.blockedId is string;
+    }
+
+    // 2. Users Collection (defined in blueprint)
+    match /users/{userId} {
+      allow read, write: if isValidId(userId);
+    }
+
+    // 3. Escort Profiles Collection
+    match /escort_profiles/{profileId} {
+      allow read: if true;
+      allow create, update: if isValidId(profileId) && isValidEscortProfile(request.resource.data);
+      allow delete: if true;
+    }
+
+    // 4. Messages Collection
+    match /messages/{messageId} {
+      allow read: if true;
+      allow create: if isValidId(messageId) && isValidMessage(request.resource.data);
+      allow update, delete: if true;
+    }
+
+    // 5. Blocks Collection
+    match /blocks/{blockId} {
+      allow read: if true;
+      allow create: if isValidId(blockId) && isValidBlock(request.resource.data);
+      allow update, delete: if true;
+    }
+  }
+}

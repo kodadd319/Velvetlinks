@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "users": {
+      "fields": {
+        "id": "string",
+        "email": "string",
+        "role": "string",
+        "name": "string",
+        "location": "string",
+        "createdAt": "timestamp"
+      }
+    },
+    "escort_profiles": {
+      "fields": {
+        "id": "string",
+        "userId": "string",
+        "name": "string",
+        "description": "string",
+        "services": "array",
+        "images": "array",
+        "videos": "array",
+        "location": "string",
+        "coords": "object",
+        "visibilityExpiry": "timestamp",
+        "createdAt": "timestamp"
+      }
+    },
+    "messages": {
+      "fields": {
+        "id": "string",
+        "senderId": "string",
+        "receiverId": "string",
+        "text": "string",
+        "timestamp": "timestamp"
+      }
+    },
+    "blocks": {
+      "fields": {
+        "id": "string",
+        "blockerId": "string",
+        "blockedId": "string",
+        "createdAt": "timestamp"
+      }
+    }
+  }
+}

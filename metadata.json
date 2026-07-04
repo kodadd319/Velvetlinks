@@ -1,0 +1,6 @@
+{
+  "name": "VelvetLinks",
+  "description": "A professional and elegant platform connecting escorts and clients with secure messaging, local discovery, and profile subscriptions.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

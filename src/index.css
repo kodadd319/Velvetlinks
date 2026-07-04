@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  /* Custom luxury colors representing plush crushed velvet and dark lavender */
+  --color-mahogany: #080312;
+  --color-mahogany-light: #160a26;
+  --color-mahogany-glow: #2b1147;
+  --color-leather: #ebd5f7;
+  --color-leather-light: #f7eefa;
+  --color-leather-dark: #a98cb8;
+  --color-gold: #b070e6;
+  --color-gold-bright: #e9b3ff;
+  --color-gold-dark: #671ca6;
+}
+
+/* Custom scrollbars for slick chat and profile scrolling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-mahogany-light);
+  border-radius: 3px;
+  border: 1px solid rgba(176, 112, 230, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Plush Soft Crushed Velvet Texture */
+.bg-mahogany-gloss {
+  background: 
+    radial-gradient(circle at 12% 18%, rgba(233, 179, 255, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 88% 82%, rgba(103, 28, 166, 0.22) 0%, transparent 55%),
+    linear-gradient(135deg, 
+      #05020a 0%, 
+      #130722 15%, 
+      #2b1147 30%, 
+      #190a2c 45%, 
+      #3e1663 55%, 
+      #110620 70%, 
+      #2c0d4a 85%, 
+      #080312 100%
+    );
+  background-size: 150% 150%;
+  background-position: 0% 0%;
+  box-shadow: 
+    inset 0 1px 2px rgba(233, 179, 255, 0.25), 
+    inset 0 -2px 12px rgba(0, 0, 0, 0.85),
+    0 12px 32px -8px rgba(0, 0, 0, 0.85);
+  transition: background-position 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+.bg-mahogany-gloss-hover:hover {
+  background-position: 50% 50%;
+  box-shadow: 
+    inset 0 1px 4px rgba(233, 179, 255, 0.4), 
+    inset 0 -2px 18px rgba(103, 28, 166, 0.3),
+    0 18px 38px -4px rgba(0, 0, 0, 0.95);
+}
+
+/* Deep Velvet Lounge Background with subtle ambient crushed texture */
+.bg-velvet-lounge {
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(103, 28, 166, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 100% 50%, rgba(43, 17, 71, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 0% 100%, rgba(43, 17, 71, 0.1) 0%, transparent 40%),
+    #05020a;
+}
+
+/* Velvet Matte Soft Surface */
+.bg-leather-surface {
+  background: linear-gradient(135deg, #ebd5f7 0%, #dbb9f1 100%);
+  color: #080312;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Pulse animation for premium visible status badge */
+@keyframes goldPulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(176, 112, 230, 0.4);
+  }
+  50% { 
+    opacity: 0.9; 
+    transform: scale(1.03);
+    box-shadow: 0 0 18px rgba(233, 179, 255, 0.7);
+  }
+}
+
+.animate-gold-pulse {
+  animation: goldPulse 2s infinite ease-in-out;
+}
+
+/* --- VELVET SHIMMER METALLIC SHINE STYLES --- */
+
+@keyframes gold-shine-anim {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes button-shine-anim {
+  0% {
+    left: -100%;
+  }
+  25% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Realistic Soft Crushed Velvet Text Shine (Applied to lavender headers, labels, and spans) */
+h1.text-gold, 
+h2.text-gold, 
+h3.text-gold, 
+h4.text-gold, 
+span.text-gold, 
+p.text-gold,
+.gold-shine-text {
+  background: linear-gradient(
+    110deg,
+    #671ca6 0%,
+    #b070e6 25%,
+    #ffffff 45%,
+    #b070e6 55%,
+    #671ca6 80%,
+    #e9b3ff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent !important;
+  animation: gold-shine-anim 5s linear infinite;
+  display: inline-block;
+}
+
+/* Realistic Soft Lavender Bright Text Shine */
+h1.text-gold-bright, 
+h2.text-gold-bright, 
+h3.text-gold-bright, 
+h4.text-gold-bright, 
+span.text-gold-bright, 
+p.text-gold-bright {
+  background: linear-gradient(
+    110deg,
+    #8332d9 0%,
+    #e9b3ff 25%,
+    #ffffff 45%,
+    #e9b3ff 55%,
+    #8332d9 80%,
+    #e9b3ff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent !important;
+  animation: gold-shine-anim 5s linear infinite;
+  display: inline-block;
+}
+
+/* Soft Lavender Velvet Button Sheen Shine Effect */
+.bg-gradient-to-r.from-gold.to-gold-bright, 
+.bg-gradient-to-tr.from-gold.to-gold-bright, 
+.bg-gold,
+.gold-shine-btn {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.bg-gradient-to-r.from-gold.to-gold-bright::after, 
+.bg-gradient-to-tr.from-gold.to-gold-bright::after,
+.bg-gold::after,
+.gold-shine-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: button-shine-anim 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Sweep effect when hovering outlined buttons */
+.hover\:bg-gold:hover {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.hover\:bg-gold:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: button-shine-anim 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* --- NEON LIGHT SIGN VISUALS --- */
+
+@keyframes neon-hum {
+  0%, 100% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 8px rgba(176, 112, 230, 0.8),
+      0 0 15px rgba(176, 112, 230, 0.6),
+      0 0 30px rgba(176, 112, 230, 0.4);
+    opacity: 1;
+  }
+  45% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.8),
+      0 0 7px rgba(176, 112, 230, 0.7),
+      0 0 13px rgba(176, 112, 230, 0.5),
+      0 0 25px rgba(176, 112, 230, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 0 2px rgba(255, 255, 255, 0.5),
+      0 0 4px rgba(176, 112, 230, 0.4),
+      0 0 9px rgba(176, 112, 230, 0.3);
+    opacity: 0.92;
+  }
+  51% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 8px rgba(176, 112, 230, 0.8),
+      0 0 15px rgba(176, 112, 230, 0.6);
+    opacity: 1;
+  }
+  80% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 8px rgba(176, 112, 230, 0.8);
+    opacity: 1;
+  }
+  82% {
+    text-shadow: none;
+    opacity: 0.8;
+  }
+  83% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 8px rgba(176, 112, 230, 0.8);
+    opacity: 1;
+  }
+}
+
+@keyframes neon-hum-pink {
+  0%, 100% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 8px rgba(255, 77, 166, 0.8),
+      0 0 15px rgba(255, 77, 166, 0.6),
+      0 0 30px rgba(255, 77, 166, 0.4);
+    opacity: 1;
+  }
+  48% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.8),
+      0 0 7px rgba(255, 77, 166, 0.7);
+  }
+  50% {
+    text-shadow: none;
+    opacity: 0.85;
+  }
+  52% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 8px rgba(255, 77, 166, 0.8);
+    opacity: 1;
+  }
+}
+
+@keyframes neon-border-pulse {
+  0%, 100% {
+    box-shadow: 
+      inset 0 0 3px rgba(255, 255, 255, 0.2),
+      0 0 4px rgba(176, 112, 230, 0.3),
+      0 0 10px rgba(176, 112, 230, 0.1);
+    border-color: rgba(176, 112, 230, 0.4);
+  }
+  50% {
+    box-shadow: 
+      inset 0 0 6px rgba(255, 255, 255, 0.3),
+      0 0 8px rgba(176, 112, 230, 0.5),
+      0 0 16px rgba(176, 112, 230, 0.3);
+    border-color: rgba(233, 179, 255, 0.7);
+  }
+}
+
+@keyframes neon-border-pulse-pink {
+  0%, 100% {
+    box-shadow: 
+      inset 0 0 3px rgba(255, 255, 255, 0.2),
+      0 0 4px rgba(255, 77, 166, 0.3);
+    border-color: rgba(255, 77, 166, 0.4);
+  }
+  50% {
+    box-shadow: 
+      inset 0 0 6px rgba(255, 255, 255, 0.3),
+      0 0 8px rgba(255, 77, 166, 0.5),
+      0 0 16px rgba(255, 77, 166, 0.3);
+    border-color: rgba(255, 140, 200, 0.7);
+  }
+}
+
+/* Neon signage classes */
+.neon-sign-purple {
+  color: #f7eefa !important;
+  font-family: var(--font-serif);
+  animation: neon-hum 3s ease-in-out infinite;
+}
+
+.neon-sign-pink {
+  color: #fce7f3 !important;
+  font-family: var(--font-serif);
+  animation: neon-hum-pink 4s ease-in-out infinite;
+}
+
+.neon-border-purple {
+  border: 1px solid rgba(176, 112, 230, 0.4);
+  animation: neon-border-pulse 3s infinite ease-in-out;
+}
+
+.neon-border-pink {
+  border: 1px solid rgba(255, 77, 166, 0.4);
+  animation: neon-border-pulse-pink 2.5s infinite ease-in-out;
+}
+
+
