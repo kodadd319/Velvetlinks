@@ -144,7 +144,7 @@ export default function ChatBox({ currentUser, partnerId, partnerName, partnerRo
                   className={`max-w-[75%] rounded-2xl px-3.5 py-2 text-xs shadow-md transition-all ${
                     isMe
                       ? 'bg-gradient-to-r from-gold to-gold-bright text-black rounded-tr-none font-medium'
-                      : 'bg-black/60 text-leather rounded-tl-none border border-gold/15'
+                      : 'bg-slate-blue-dark/20 text-leather rounded-tl-none border border-slate-blue/30'
                   }`}
                 >
                   <p className="whitespace-pre-wrap break-words">{msg.text}</p>
@@ -177,12 +177,12 @@ export default function ChatBox({ currentUser, partnerId, partnerName, partnerRo
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Type your message securely..."
-              className="flex-1 bg-black border border-gold/20 rounded-xl px-3.5 py-2 text-xs text-leather focus:outline-none focus:border-gold/40"
+              className="flex-1 bg-black border border-slate-blue/30 rounded-xl px-3.5 py-2 text-xs text-leather focus:outline-none focus:border-slate-blue-light/60 focus:ring-1 focus:ring-slate-blue-light/30"
             />
             <button
               type="submit"
               disabled={!inputText.trim()}
-              className="p-2.5 bg-gradient-to-r from-gold to-gold-bright text-black rounded-xl hover:shadow-lg hover:shadow-gold/10 transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+              className="p-2.5 bg-gradient-to-r from-slate-blue to-slate-blue-light text-white rounded-xl hover:shadow-lg hover:shadow-slate-blue/10 transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
             >
               <Send className="w-3.5 h-3.5" />
             </button>

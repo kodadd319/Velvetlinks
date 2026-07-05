@@ -321,49 +321,53 @@ export default function App() {
     <div className="min-h-screen bg-velvet-lounge text-leather flex flex-col font-sans selection:bg-gold selection:text-black">
       
       {/* Top Professional Header */}
-      <header className="sticky top-0 z-30 bg-mahogany-gloss border-b border-gold/25 py-6 px-4 md:px-8 shadow-lg shadow-black/80">
-        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 text-center">
+      <header className="sticky top-0 z-30 bg-mahogany-gloss border-b border-gold/25 py-4 px-4 md:px-8 shadow-lg shadow-black/80">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           
-          {/* Logo Brand */}
-          <div 
-            onClick={() => {
-              setActiveRole('client');
-              setClientPage('main');
-            }}
-            className="flex items-center justify-center cursor-pointer hover:opacity-90 active:scale-98 transition-all"
-          >
-            <div>
-              <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-wider select-none">
-                <span className="neon-sign-purple">Velvet</span>
-                <span className="neon-sign-pink ml-1">Links</span>
-              </h1>
-            </div>
-          </div>
-
-          {/* Luxury Role Navigation Panel */}
-          <div className="flex items-center gap-1.5 bg-black/60 p-1 rounded-2xl border border-gold/20">
+          {/* Left: Client Button */}
+          <div className="order-2 md:order-1 flex justify-start w-full md:w-auto">
             <button
               onClick={() => {
                 setActiveRole('client');
                 setClientPage('main');
               }}
-              className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
+              className={`w-full md:w-auto px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer ${
                 activeRole === 'client'
-                  ? 'bg-gradient-to-r from-gold to-gold-bright text-black shadow-md'
-                  : 'text-leather/60 hover:text-leather'
+                  ? 'bg-gradient-to-r from-slate-blue to-slate-blue-light text-white shadow-md border border-slate-blue/45'
+                  : 'bg-black/40 text-leather/60 hover:text-leather hover:bg-black/60 border border-gold/10'
               }`}
             >
-              <span>Find Companions</span>
+              <span>Client</span>
             </button>
+          </div>
+
+          {/* Center: Logo Brand */}
+          <div 
+            onClick={() => {
+              setActiveRole('client');
+              setClientPage('main');
+            }}
+            className="order-1 md:order-2 flex items-center justify-center cursor-pointer hover:opacity-90 active:scale-98 transition-all"
+          >
+            <div>
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider select-none">
+                <span className="neon-sign-purple">Velvet</span>
+                <span className="neon-sign-blue ml-1">Links</span>
+              </h1>
+            </div>
+          </div>
+
+          {/* Right: Service Providers Button */}
+          <div className="order-3 flex justify-end w-full md:w-auto">
             <button
               onClick={() => setActiveRole('escort')}
-              className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
+              className={`w-full md:w-auto px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer ${
                 activeRole === 'escort'
-                  ? 'bg-gradient-to-r from-gold to-gold-bright text-black shadow-md'
-                  : 'text-leather/60 hover:text-leather'
+                  ? 'bg-gradient-to-r from-slate-blue to-slate-blue-light text-white shadow-md border border-slate-blue/45'
+                  : 'bg-black/40 text-leather/60 hover:text-leather hover:bg-black/60 border border-gold/10'
               }`}
             >
-              <span>Companion Portal</span>
+              <span>Service Providers</span>
             </button>
           </div>
 
@@ -385,17 +389,17 @@ export default function App() {
                 className="space-y-12 max-w-4xl mx-auto py-12"
               >
                 {/* Hero introduction */}
-                <div className="text-center space-y-3">
-                  <h2 className="font-serif text-3xl md:text-5xl font-semibold tracking-tight neon-sign-purple">
+                <div className="text-center space-y-4 -mt-4">
+                  <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight neon-sign-purple leading-tight md:leading-none">
                     Find escorts in your area
                   </h2>
-                  <p className="text-leather-dark text-sm max-w-lg mx-auto">
+                  <p className="text-leather-dark text-base md:text-lg max-w-xl mx-auto">
                     Search companion profiles in your city. Enter a city name below or choose a popular city to browse.
                   </p>
                 </div>
 
                 {/* Location Search Box */}
-                <div className="bg-mahogany-gloss neon-border-purple p-6 rounded-3xl shadow-xl space-y-4">
+                <div className="velvet-pillow neon-border-purple p-6 shadow-xl space-y-4">
                   <div className="flex flex-col sm:flex-row gap-3 items-center">
                     <div className="relative flex-1 w-full">
                       <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gold" />
@@ -423,11 +427,11 @@ export default function App() {
                       <button
                         onClick={handleDetectLocation}
                         disabled={isDetectingLocation}
-                        className="p-4 bg-black hover:bg-gold hover:text-black text-gold rounded-2xl transition-all border border-gold/25 text-sm font-bold shrink-0 cursor-pointer flex items-center justify-center min-w-[50px] min-h-[50px]"
+                        className="p-4 bg-black hover:bg-slate-blue hover:text-white text-slate-blue-light rounded-2xl transition-all border border-slate-blue/25 text-sm font-bold shrink-0 cursor-pointer flex items-center justify-center min-w-[50px] min-h-[50px]"
                         title="Detect My Location"
                       >
                         {isDetectingLocation ? (
-                          <span className="w-5 h-5 border-2 border-t-transparent border-gold animate-spin rounded-full inline-block"></span>
+                          <span className="w-5 h-5 border-2 border-t-transparent border-slate-blue-light animate-spin rounded-full inline-block"></span>
                         ) : (
                           <Map className="w-5 h-5" />
                         )}
@@ -436,7 +440,7 @@ export default function App() {
                       <button
                         onClick={() => handleSearchLocation(selectedLocation)}
                         disabled={isSearchingLocation}
-                        className="flex-1 sm:flex-none px-8 py-4 bg-gradient-to-r from-gold to-gold-bright hover:shadow-lg hover:shadow-gold/15 text-black font-bold rounded-2xl text-sm uppercase tracking-wider transition-all cursor-pointer active:scale-[0.98] min-h-[50px] flex items-center justify-center"
+                        className="flex-1 sm:flex-none px-8 py-4 bg-gradient-to-r from-slate-blue to-slate-blue-light hover:shadow-lg hover:shadow-slate-blue/15 text-white font-bold rounded-2xl text-sm uppercase tracking-wider transition-all cursor-pointer active:scale-[0.98] min-h-[50px] flex items-center justify-center"
                       >
                         {isSearchingLocation ? 'Searching...' : 'Search'}
                       </button>
@@ -455,8 +459,8 @@ export default function App() {
                           onClick={() => setFilterGender(genderOption)}
                           className={`px-4 py-2 text-xs font-bold rounded-xl border transition-all duration-200 cursor-pointer ${
                             filterGender === genderOption
-                              ? 'bg-gradient-to-r from-gold to-gold-bright text-black border-gold shadow-md shadow-gold/15'
-                              : 'bg-black hover:bg-gold/10 border-gold/20 text-leather/80 hover:text-gold'
+                              ? 'bg-gradient-to-r from-slate-blue to-slate-blue-light text-white border-slate-blue shadow-md shadow-slate-blue/15'
+                              : 'bg-black hover:bg-slate-blue/10 border-slate-blue/20 text-leather/80 hover:text-slate-blue'
                           }`}
                         >
                           {genderOption}
@@ -466,9 +470,9 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Popular Cities Grid */}
+                 {/* Popular Cities Grid */}
                 <div className="space-y-4">
-                  <h3 className="text-center text-xs font-bold uppercase tracking-wider text-gold">
+                  <h3 className="text-center text-xs font-bold uppercase tracking-wider text-slate-blue-light">
                     Or Choose a Popular City
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -488,7 +492,7 @@ export default function App() {
                           setSelectedLocation(cityName);
                           handleSearchLocation(cityName);
                         }}
-                        className="px-4 py-3.5 bg-mahogany-gloss/40 hover:bg-gold/10 border border-gold/15 hover:border-gold/50 text-leather hover:text-gold rounded-2xl text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer text-center"
+                        className="px-4 py-3.5 bg-mahogany-gloss/40 hover:bg-slate-blue/10 border border-slate-blue/15 hover:border-slate-blue/50 text-leather hover:text-slate-blue-light rounded-2xl text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer text-center"
                       >
                         {cityName}
                       </button>
@@ -506,17 +510,17 @@ export default function App() {
                 className="space-y-6"
               >
                 {/* Back Navigation & Page Title */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gold/15 pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-blue/20 pb-4">
                   <div className="flex flex-wrap items-center gap-3">
                     <button
                       onClick={() => setClientPage('main')}
-                      className="px-4 py-2 bg-black hover:bg-gold/5 border border-gold/30 hover:border-gold text-gold text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all cursor-pointer"
+                      className="px-4 py-2 bg-black hover:bg-slate-blue/5 border border-slate-blue/30 hover:border-slate-blue text-slate-blue-light text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all cursor-pointer"
                     >
                       <ArrowLeft className="w-3.5 h-3.5" />
                       <span>Back to Search</span>
                     </button>
                     
-                    <h2 className="font-serif text-2xl font-bold text-gold">
+                    <h2 className="font-serif text-2xl font-bold text-slate-blue-light">
                       Companion Profiles in {appliedLocation}
                     </h2>
                   </div>
@@ -527,12 +531,12 @@ export default function App() {
                 </div>
 
                 {/* Filters Area for Refinement */}
-                <div className="bg-mahogany-gloss neon-border-purple p-4 rounded-3xl shadow-xl space-y-4">
+                <div className="velvet-pillow neon-border-blue p-4 shadow-xl space-y-4">
                   <div className="flex flex-col md:flex-row gap-4 items-center">
                     {/* Location quick refiner (allows typing/changing right on the page) */}
                     <div className="flex items-center gap-2 w-full md:w-auto shrink-0">
                       <div className="relative flex-1 md:flex-initial">
-                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gold" />
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-blue-light" />
                         <input
                           type="text"
                           list="profiles-cities"
@@ -544,7 +548,7 @@ export default function App() {
                             }
                           }}
                           placeholder="Change city (e.g. Miami, FL)"
-                          className="w-full md:w-52 bg-black border border-gold/25 rounded-2xl pl-9 pr-4 py-3 text-xs text-leather focus:outline-none focus:border-gold/50 placeholder-leather-dark/60"
+                          className="w-full md:w-52 bg-black border border-slate-blue/25 rounded-2xl pl-9 pr-4 py-3 text-xs text-leather focus:outline-none focus:border-slate-blue-light/50 placeholder-leather-dark/60"
                         />
                         <datalist id="profiles-cities">
                           {CITIES_REGISTRY.map(city => (
@@ -556,11 +560,11 @@ export default function App() {
                       <button
                         onClick={handleDetectLocation}
                         disabled={isDetectingLocation}
-                        className="p-3 bg-black hover:bg-gold hover:text-black text-gold rounded-2xl transition-all border border-gold/25 text-xs font-bold shrink-0 cursor-pointer flex items-center justify-center min-w-[42px] min-h-[42px]"
+                        className="p-3 bg-black hover:bg-slate-blue hover:text-white text-slate-blue rounded-2xl transition-all border border-slate-blue/25 text-xs font-bold shrink-0 cursor-pointer flex items-center justify-center min-w-[42px] min-h-[42px]"
                         title="Detect My Location"
                       >
                         {isDetectingLocation ? (
-                          <span className="w-4 h-4 border-2 border-t-transparent border-gold animate-spin rounded-full inline-block"></span>
+                          <span className="w-4 h-4 border-2 border-t-transparent border-slate-blue animate-spin rounded-full inline-block"></span>
                         ) : (
                           <Map className="w-4 h-4" />
                         )}
@@ -569,7 +573,7 @@ export default function App() {
                       <button
                         onClick={() => handleSearchLocation(selectedLocation)}
                         disabled={isSearchingLocation}
-                        className="px-4 py-3 bg-black hover:bg-gold hover:text-black text-gold hover:shadow-lg hover:shadow-gold/15 border border-gold/25 font-bold rounded-2xl text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-[0.98] shrink-0 min-h-[42px] flex items-center justify-center"
+                        className="px-4 py-3 bg-black hover:bg-slate-blue hover:text-white text-slate-blue hover:shadow-lg hover:shadow-slate-blue/15 border border-slate-blue/25 font-bold rounded-2xl text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-[0.98] shrink-0 min-h-[42px] flex items-center justify-center"
                       >
                         {isSearchingLocation ? '...' : 'Enter'}
                       </button>
@@ -583,13 +587,13 @@ export default function App() {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Refine by name, service, or language..."
-                        className="w-full bg-black border border-gold/25 rounded-2xl pl-10 pr-4 py-3 text-xs focus:outline-none focus:border-gold/50 text-leather placeholder-leather-dark"
+                        className="w-full bg-black border border-slate-blue/25 rounded-2xl pl-10 pr-4 py-3 text-xs focus:outline-none focus:border-slate-blue-light/50 text-leather placeholder-leather-dark"
                       />
                     </div>
                   </div>
 
                   {/* Gender Selector for Refinement */}
-                  <div className="pt-3 border-t border-gold/10 flex flex-col sm:flex-row sm:items-center gap-3">
+                  <div className="pt-3 border-t border-slate-blue/10 flex flex-col sm:flex-row sm:items-center gap-3">
                     <span className="text-xs font-bold uppercase tracking-wider text-leather-dark">
                       Refine Gender:
                     </span>
@@ -600,8 +604,8 @@ export default function App() {
                           onClick={() => setFilterGender(genderOption)}
                           className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-all duration-200 cursor-pointer ${
                             filterGender === genderOption
-                              ? 'bg-gradient-to-r from-gold to-gold-bright text-black border-gold shadow-sm shadow-gold/10'
-                              : 'bg-black hover:bg-gold/10 border-gold/20 text-leather/80 hover:text-gold'
+                              ? 'bg-gradient-to-r from-slate-blue to-slate-blue-light text-white border-slate-blue shadow-sm shadow-slate-blue/10'
+                              : 'bg-black hover:bg-slate-blue/10 border-slate-blue/20 text-leather/80 hover:text-slate-blue-light'
                           }`}
                         >
                           {genderOption}
@@ -615,8 +619,8 @@ export default function App() {
                 {isLoading ? (
                   <div className="py-24 text-center">
                     <div className="inline-block relative w-10 h-10">
-                      <div className="absolute inset-0 rounded-full border-2 border-gold/10"></div>
-                      <div className="absolute inset-0 rounded-full border-2 border-t-gold animate-spin"></div>
+                      <div className="absolute inset-0 rounded-full border-2 border-slate-blue/10"></div>
+                      <div className="absolute inset-0 rounded-full border-2 border-t-slate-blue-light animate-spin"></div>
                     </div>
                     <p className="text-leather-dark text-xs mt-3">Loading companion listings...</p>
                   </div>
@@ -778,13 +782,13 @@ export default function App() {
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-mahogany-gloss border border-gold/25 rounded-3xl p-8 shadow-2xl space-y-6"
+                    className="velvet-pillow border border-slate-blue/25 p-8 shadow-2xl space-y-6"
                   >
                     <div className="text-center space-y-2">
-                      <div className="inline-flex p-3 bg-gold/10 border border-gold/20 rounded-full mb-1">
-                        <LogIn className="w-6 h-6 text-gold animate-gold-pulse" />
+                      <div className="inline-flex p-3 bg-slate-blue/10 border border-slate-blue/20 rounded-full mb-1">
+                        <LogIn className="w-6 h-6 text-slate-blue-light animate-gold-pulse" />
                       </div>
-                      <h3 className="font-serif text-2xl font-bold text-gold tracking-tight">Companion Login</h3>
+                      <h3 className="font-serif text-2xl font-bold text-slate-blue-light tracking-tight">Companion Login</h3>
                       <p className="text-leather-dark text-xs">
                         Enter your login details to manage your profile.
                       </p>
@@ -823,7 +827,7 @@ export default function App() {
                     >
                       <div>
                         <label className="block text-[10px] text-leather-dark font-bold uppercase tracking-wider mb-1 flex items-center gap-1">
-                          <User className="w-3 h-3 text-gold/60" />
+                          <User className="w-3 h-3 text-slate-blue/60" />
                           <span>Username</span>
                         </label>
                         <input
@@ -832,13 +836,13 @@ export default function App() {
                           value={loginUsername}
                           onChange={(e) => setLoginUsername(e.target.value)}
                           placeholder="e.g. elena"
-                          className="w-full bg-black border border-gold/20 rounded-xl px-3.5 py-2.5 text-sm text-leather focus:outline-none focus:border-gold/50"
+                          className="w-full bg-black border border-slate-blue/20 rounded-xl px-3.5 py-2.5 text-sm text-leather focus:outline-none focus:border-slate-blue-light/50"
                         />
                       </div>
 
                       <div>
                         <label className="block text-[10px] text-leather-dark font-bold uppercase tracking-wider mb-1 flex items-center gap-1">
-                          <Lock className="w-3 h-3 text-gold/60" />
+                          <Lock className="w-3 h-3 text-slate-blue/60" />
                           <span>Password</span>
                         </label>
                         <input
@@ -847,7 +851,7 @@ export default function App() {
                           value={loginPassword}
                           onChange={(e) => setLoginPassword(e.target.value)}
                           placeholder="••••••••"
-                          className="w-full bg-black border border-gold/20 rounded-xl px-3.5 py-2.5 text-sm text-leather focus:outline-none focus:border-gold/50"
+                          className="w-full bg-black border border-slate-blue/20 rounded-xl px-3.5 py-2.5 text-sm text-leather focus:outline-none focus:border-slate-blue-light/50"
                         />
                       </div>
 
@@ -860,13 +864,13 @@ export default function App() {
 
                       <button
                         type="submit"
-                        className="w-full py-3 bg-gradient-to-r from-gold to-gold-bright hover:shadow-lg hover:shadow-gold/15 text-black font-bold rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-[0.98] mt-2"
+                        className="w-full py-3 bg-gradient-to-r from-slate-blue to-slate-blue-light hover:shadow-lg hover:shadow-slate-blue/15 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer active:scale-[0.98] mt-2"
                       >
                         Log In
                       </button>
                     </form>
 
-                    <div className="border-t border-gold/10 pt-4 text-center">
+                    <div className="border-t border-slate-blue/10 pt-4 text-center">
                       <p className="text-xs text-leather-dark">
                         No profile yet?
                       </p>
@@ -875,7 +879,7 @@ export default function App() {
                           setIsRegistering(true);
                           setLoginError(null);
                         }}
-                        className="text-xs text-gold hover:text-gold-bright font-semibold mt-1 hover:underline cursor-pointer"
+                        className="text-xs text-slate-blue-light hover:text-slate-blue-glow font-semibold mt-1 hover:underline cursor-pointer"
                       >
                         Register here &rarr;
                       </button>

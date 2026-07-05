@@ -306,7 +306,7 @@ export default function UserProfileSetup({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Profile Info Input Form (8 columns) */}
-        <div className="lg:col-span-8 space-y-8 bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl text-leather">
+        <div className="lg:col-span-8 space-y-8 velvet-pillow p-6 text-leather">
           
           {/* Section: Credentials */}
           <div className="space-y-4">
@@ -526,7 +526,7 @@ export default function UserProfileSetup({
             <button
               type="submit"
               disabled={isSaving}
-              className="px-6 py-3 bg-gradient-to-r from-gold to-gold-bright hover:shadow-lg hover:shadow-gold/15 text-black font-bold rounded-xl text-sm transition-all disabled:opacity-50 cursor-pointer active:scale-[0.98]"
+              className="px-6 py-3 bg-gradient-to-r from-slate-blue to-slate-blue-light hover:shadow-lg hover:shadow-slate-blue/15 text-white font-bold rounded-xl text-sm transition-all disabled:opacity-50 cursor-pointer active:scale-[0.98]"
             >
               {isSaving ? 'Saving...' : 'Save Profile'}
             </button>
@@ -537,7 +537,7 @@ export default function UserProfileSetup({
         <div className="lg:col-span-4 space-y-8">
           
           {/* Section: Main Profile Pic */}
-          <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl text-leather">
+          <div className="velvet-pillow p-6 text-leather">
             <h3 className="font-serif text-lg font-medium text-gold flex items-center gap-2 border-b border-gold/15 pb-3 mb-4">
               <ImageIcon className="w-4 h-4 text-gold" />
               <span>Main Profile Picture</span>
@@ -587,7 +587,7 @@ export default function UserProfileSetup({
           </div>
 
           {/* Section: Gallery Uploads */}
-          <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl text-leather">
+          <div className="velvet-pillow p-6 text-leather">
             <div className="flex items-center justify-between border-b border-gold/15 pb-3 mb-4">
               <h3 className="font-serif text-lg font-medium text-gold flex items-center gap-2">
                 <Film className="w-4 h-4 text-gold" />
@@ -678,7 +678,7 @@ export default function UserProfileSetup({
             <button
               type="button"
               onClick={onCustomizeProfile}
-              className="w-full md:w-auto px-6 py-3.5 bg-black border border-gold/30 hover:border-gold hover:bg-gold/5 text-gold text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="w-full md:w-auto px-6 py-3.5 bg-black border border-slate-blue/30 hover:border-slate-blue hover:bg-slate-blue/5 text-slate-blue text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Customize Profile</span>
@@ -687,7 +687,7 @@ export default function UserProfileSetup({
           <button
             type="submit"
             disabled={isSaving}
-            className="w-full md:w-auto px-8 py-3.5 bg-gradient-to-r from-gold to-gold-bright text-black text-xs font-bold uppercase tracking-wider rounded-xl hover:shadow-lg hover:shadow-gold/15 transition-all disabled:opacity-50 cursor-pointer whitespace-nowrap"
+            className="w-full md:w-auto px-8 py-3.5 bg-gradient-to-r from-slate-blue to-slate-blue-light text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:shadow-lg hover:shadow-slate-blue/15 transition-all disabled:opacity-50 cursor-pointer whitespace-nowrap"
           >
             {isSaving ? 'Saving...' : 'Save Changes'}
           </button>

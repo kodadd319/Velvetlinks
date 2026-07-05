@@ -35,10 +35,11 @@ export default function EscortCard({ profile, currentCoords, onSelect, onStartCh
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3 }}
-      className="group relative flex flex-col bg-mahogany-gloss border border-gold/15 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-gold/5 hover:border-gold/40"
+      className="group relative flex flex-col velvet-pillow overflow-hidden cursor-pointer"
+      onClick={() => onSelect(profile)}
     >
       {/* Profile Image/Video Gallery Container */}
-      <div className="relative aspect-[4/5] bg-neutral-900 overflow-hidden cursor-pointer" onClick={() => onSelect(profile)}>
+      <div className="relative aspect-[4/5] bg-neutral-900 overflow-hidden">
         {mediaList.length > 0 ? (
           isVideo(mediaList[activeImageIndex]) ? (
             <video
@@ -119,14 +120,21 @@ export default function EscortCard({ profile, currentCoords, onSelect, onStartCh
         <div className="space-y-3">
           {/* Tags list */}
           <div className="flex flex-wrap gap-1.5">
-            {profile.services.slice(0, 3).map((tag, idx) => (
-              <span
-                key={idx}
-                className="text-[10px] px-2 py-0.5 rounded bg-mahogany/50 text-leather border border-gold/15 font-medium"
-              >
-                {tag}
-              </span>
-            ))}
+            {profile.services.slice(0, 3).map((tag, idx) => {
+              const isSlateBlue = idx % 2 === 1;
+              return (
+                <span
+                  key={idx}
+                  className={`text-[10px] px-2 py-0.5 rounded font-medium border ${
+                    isSlateBlue 
+                      ? 'bg-slate-blue-dark/20 text-slate-blue-light border-slate-blue/30' 
+                      : 'bg-mahogany/50 text-leather border-gold/15'
+                  }`}
+                >
+                  {tag}
+                </span>
+              );
+            })}
             {profile.services.length > 3 && (
               <span className="text-[10px] px-1.5 py-0.5 rounded bg-mahogany/50 text-leather-dark">
                 +{profile.services.length - 3}
@@ -142,16 +150,22 @@ export default function EscortCard({ profile, currentCoords, onSelect, onStartCh
         <div className="border-t border-gold/15 pt-3.5 mt-4 flex items-center justify-end">
           <div className="flex items-center gap-1.5">
             <button
-              onClick={() => onStartChat(profile)}
-              className="p-2 bg-black hover:bg-gold hover:text-black text-gold rounded-xl transition-all border border-gold/20 cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                onStartChat(profile);
+              }}
+              className="p-2 bg-black hover:bg-slate-blue hover:text-white text-slate-blue rounded-xl transition-all border border-slate-blue/20 cursor-pointer"
               title="Send Direct Message"
             >
               <MessageSquare className="w-4 h-4" />
             </button>
 
             <button
-              onClick={() => onSelect(profile)}
-              className="px-3.5 py-2 bg-gradient-to-r from-gold to-gold-bright hover:shadow-md hover:shadow-gold/10 text-black rounded-xl text-xs font-bold transition-all flex items-center gap-1 cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelect(profile);
+              }}
+              className="px-3.5 py-2 bg-gradient-to-r from-slate-blue to-slate-blue-light hover:shadow-md hover:shadow-slate-blue/10 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1 cursor-pointer"
             >
               <span>View</span>
               <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />

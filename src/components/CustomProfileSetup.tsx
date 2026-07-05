@@ -60,7 +60,7 @@ const SEC_FONT_PRESETS = [
   { name: 'Sand', hex: '#C2B280' },
   { name: 'Amber', hex: '#F59E0B' },
   { name: 'Charcoal', hex: '#9CA3AF' },
-  { name: 'Rose', hex: '#FDA4AF' },
+  { name: 'Slate Blue (Light)', hex: '#7091bd' },
   { name: 'Blue', hex: '#93C5FD' },
   { name: 'Sage', hex: '#A7F3D0' },
   { name: 'Dark Gray', hex: '#4B5563' },
@@ -74,8 +74,8 @@ const ACCENT_PRESETS = [
   { name: 'Green', hex: '#10B981' },
   { name: 'Orange', hex: '#F59E0B' },
   { name: 'Cyan', hex: '#06B6D4' },
-  { name: 'Pink', hex: '#EC4899' },
-  { name: 'Rose', hex: '#F43F5E' },
+  { name: 'Slate Blue', hex: '#4f6f96' },
+  { name: 'Slate Blue (Glow)', hex: '#5d81ad' },
 ];
 
 // Patterns definition with detailed names and visual representations
@@ -145,8 +145,8 @@ const DESIGN_PRESETS = [
     }
   },
   {
-    name: 'Steel & Pink',
-    description: 'Brushed steel background with pink highlights.',
+    name: 'Steel & Slate Blue',
+    description: 'Brushed steel background with slate blue highlights.',
     config: {
       customLayout: 'dual_column',
       customMainFontColor: '#FFFFFF',
@@ -154,7 +154,7 @@ const DESIGN_PRESETS = [
       customBackdrop: 'black' as const,
       customMainColorType: 'pattern' as const,
       customMainColorValue: 'polished_steel',
-      customAccentColor: '#EC4899'
+      customAccentColor: '#7091bd'
     }
   }
 ];
@@ -364,7 +364,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
 
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-black border border-gold/20 hover:border-gold text-gold text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all cursor-pointer self-start sm:self-auto"
+          className="px-4 py-2 bg-black border border-slate-blue/30 hover:border-slate-blue text-slate-blue text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all cursor-pointer self-start sm:self-auto"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back</span>
@@ -372,7 +372,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
       </div>
 
       {/* 1. Preset page designs */}
-      <div className="bg-mahogany-gloss/50 border border-gold/15 p-5 rounded-2xl space-y-3">
+      <div className="velvet-pillow p-5 space-y-3">
         <div className="flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-gold-bright" />
           <h3 className="text-xs font-bold uppercase tracking-wider text-gold">Preset Designs</h3>
@@ -403,7 +403,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
       <form onSubmit={handleSave} className="space-y-6">
 
         {/* 2. Outer frame backdrop */}
-        <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl space-y-4">
+        <div className="velvet-pillow p-6 space-y-4">
           <h3 className="font-serif text-lg font-medium text-gold flex items-center gap-2">
             <Layers className="w-5 h-5" />
             <span>Outer Frame Backdrop</span>
@@ -438,7 +438,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
         </div>
 
         {/* 3. Page layout */}
-        <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl space-y-4">
+        <div className="velvet-pillow p-6 space-y-4">
           <h3 className="font-serif text-lg font-medium text-gold flex items-center gap-2">
             <Layout className="w-5 h-5" />
             <span>Page Layout</span>
@@ -478,7 +478,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
         </div>
 
         {/* 4. Canvas Backing */}
-        <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl space-y-4">
+        <div className="velvet-pillow p-6 space-y-4">
           <h3 className="font-serif text-lg font-medium text-gold flex items-center gap-2">
             <Palette className="w-5 h-5" />
             <span>Canvas Backing</span>
@@ -509,7 +509,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
         </div>
 
         {/* 5. Font color and typeface */}
-        <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl space-y-6">
+        <div className="velvet-pillow p-6 space-y-6">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <Type className="w-5 h-5 text-gold" />
@@ -626,7 +626,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
         </div>
 
         {/* 6. Accent color */}
-        <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl space-y-4">
+        <div className="velvet-pillow p-6 space-y-4">
           <h3 className="font-serif text-lg font-medium text-gold flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-gold-bright" />
             <span>Accent Color</span>
@@ -668,7 +668,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
         </div>
 
         {/* 7. Canvas backing style */}
-        <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl space-y-4">
+        <div className="velvet-pillow p-6 space-y-4">
           <h3 className="font-serif text-lg font-medium text-gold flex items-center gap-2">
             <Palette className="w-5 h-5" />
             <span>Canvas Backing Style</span>
@@ -730,7 +730,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
         </div>
 
         {/* 8. Commit and preview profile section and buttons */}
-        <div className="bg-mahogany-gloss border border-gold/15 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="velvet-pillow p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
             <h4 className="text-sm font-bold uppercase tracking-wider text-gold">Save and Preview</h4>
             <p className="text-xs text-leather-dark mt-0.5">Preview your changes or save them to your live profile.</p>
@@ -745,7 +745,7 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
             <button
               type="button"
               onClick={() => setIsPreviewOpen(true)}
-              className="flex-1 sm:flex-none px-6 py-3.5 bg-black hover:bg-gold/10 border border-gold/40 hover:border-gold text-gold text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="flex-1 sm:flex-none px-6 py-3.5 bg-black hover:bg-slate-blue/10 border border-slate-blue/40 hover:border-slate-blue text-slate-blue text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <Eye className="w-4.5 h-4.5" />
               <span>Preview</span>
@@ -754,11 +754,11 @@ export default function CustomProfileSetup({ profile, onBack, onProfileUpdated }
             <button
               type="submit"
               disabled={isSaving}
-              className="flex-1 sm:flex-none px-8 py-3.5 bg-gradient-to-r from-gold to-gold-bright text-black text-xs font-bold uppercase tracking-wider rounded-xl hover:shadow-lg hover:shadow-gold/15 transition-all disabled:opacity-50 cursor-pointer flex items-center justify-center gap-2 font-extrabold"
+              className="flex-1 sm:flex-none px-8 py-3.5 bg-gradient-to-r from-slate-blue to-slate-blue-light text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:shadow-lg hover:shadow-slate-blue/15 transition-all disabled:opacity-50 cursor-pointer flex items-center justify-center gap-2 font-extrabold"
             >
               {isSaving ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   <span>Saving...</span>
                 </>
               ) : (

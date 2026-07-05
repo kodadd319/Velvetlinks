@@ -15,6 +15,12 @@
   --color-gold: #b070e6;
   --color-gold-bright: #e9b3ff;
   --color-gold-dark: #671ca6;
+
+  /* Elegant slate blue custom palette additions */
+  --color-slate-blue: #4f6f96;
+  --color-slate-blue-light: #7091bd;
+  --color-slate-blue-dark: #2c425e;
+  --color-slate-blue-glow: #5d81ad;
 }
 
 /* Custom scrollbars for slick chat and profile scrolling */
@@ -70,6 +76,7 @@
 .bg-velvet-lounge {
   background: 
     radial-gradient(circle at 50% 0%, rgba(103, 28, 166, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(79, 111, 150, 0.12) 0%, transparent 50%),
     radial-gradient(circle at 100% 50%, rgba(43, 17, 71, 0.1) 0%, transparent 40%),
     radial-gradient(circle at 0% 100%, rgba(43, 17, 71, 0.1) 0%, transparent 40%),
     #05020a;
@@ -282,15 +289,15 @@ p.text-gold-bright {
   0%, 100% {
     text-shadow: 
       0 0 3px rgba(255, 255, 255, 0.9),
-      0 0 8px rgba(255, 77, 166, 0.8),
-      0 0 15px rgba(255, 77, 166, 0.6),
-      0 0 30px rgba(255, 77, 166, 0.4);
+      0 0 8px rgba(112, 145, 189, 0.8),
+      0 0 15px rgba(112, 145, 189, 0.6),
+      0 0 30px rgba(112, 145, 189, 0.4);
     opacity: 1;
   }
   48% {
     text-shadow: 
       0 0 3px rgba(255, 255, 255, 0.8),
-      0 0 7px rgba(255, 77, 166, 0.7);
+      0 0 7px rgba(112, 145, 189, 0.7);
   }
   50% {
     text-shadow: none;
@@ -299,7 +306,7 @@ p.text-gold-bright {
   52% {
     text-shadow: 
       0 0 3px rgba(255, 255, 255, 0.9),
-      0 0 8px rgba(255, 77, 166, 0.8);
+      0 0 8px rgba(112, 145, 189, 0.8);
     opacity: 1;
   }
 }
@@ -325,15 +332,15 @@ p.text-gold-bright {
   0%, 100% {
     box-shadow: 
       inset 0 0 3px rgba(255, 255, 255, 0.2),
-      0 0 4px rgba(255, 77, 166, 0.3);
-    border-color: rgba(255, 77, 166, 0.4);
+      0 0 4px rgba(112, 145, 189, 0.3);
+    border-color: rgba(112, 145, 189, 0.4);
   }
   50% {
     box-shadow: 
       inset 0 0 6px rgba(255, 255, 255, 0.3),
-      0 0 8px rgba(255, 77, 166, 0.5),
-      0 0 16px rgba(255, 77, 166, 0.3);
-    border-color: rgba(255, 140, 200, 0.7);
+      0 0 8px rgba(112, 145, 189, 0.5),
+      0 0 16px rgba(112, 145, 189, 0.3);
+    border-color: rgba(145, 178, 222, 0.7);
   }
 }
 
@@ -345,7 +352,7 @@ p.text-gold-bright {
 }
 
 .neon-sign-pink {
-  color: #fce7f3 !important;
+  color: #e0f2fe !important;
   font-family: var(--font-serif);
   animation: neon-hum-pink 4s ease-in-out infinite;
 }
@@ -356,8 +363,124 @@ p.text-gold-bright {
 }
 
 .neon-border-pink {
-  border: 1px solid rgba(255, 77, 166, 0.4);
+  border: 1px solid rgba(112, 145, 189, 0.4);
   animation: neon-border-pulse-pink 2.5s infinite ease-in-out;
+}
+
+@keyframes neon-hum-blue {
+  0%, 100% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 8px rgba(79, 111, 150, 0.8),
+      0 0 15px rgba(79, 111, 150, 0.6),
+      0 0 30px rgba(79, 111, 150, 0.4);
+    opacity: 1;
+  }
+  46% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.8),
+      0 0 7px rgba(79, 111, 150, 0.7);
+  }
+  50% {
+    text-shadow: none;
+    opacity: 0.88;
+  }
+  54% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 8px rgba(79, 111, 150, 0.8);
+    opacity: 1;
+  }
+}
+
+@keyframes neon-border-pulse-blue {
+  0%, 100% {
+    box-shadow: 
+      inset 0 0 3px rgba(255, 255, 255, 0.2),
+      0 0 4px rgba(79, 111, 150, 0.3);
+    border-color: rgba(79, 111, 150, 0.4);
+  }
+  50% {
+    box-shadow: 
+      inset 0 0 6px rgba(255, 255, 255, 0.3),
+      0 0 8px rgba(79, 111, 150, 0.5),
+      0 0 16px rgba(79, 111, 150, 0.3);
+    border-color: rgba(112, 145, 189, 0.7);
+  }
+}
+
+.neon-sign-blue {
+  color: #f0f5fa !important;
+  font-family: var(--font-serif);
+  animation: neon-hum-blue 3.5s ease-in-out infinite;
+}
+
+.neon-border-blue {
+  border: 1px solid rgba(79, 111, 150, 0.4);
+  animation: neon-border-pulse-blue 2.8s infinite ease-in-out;
+}
+
+/* Plush pillow crushed velvet & velvet rope VIP styles */
+.velvet-pillow {
+  border-radius: 24px;
+  background: 
+    radial-gradient(circle at 12% 18%, rgba(233, 179, 255, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 88% 82%, rgba(79, 111, 150, 0.18) 0%, transparent 55%),
+    linear-gradient(135deg, 
+      #05020a 0%, 
+      #130722 15%, 
+      #1e0a35 35%, 
+      #110620 60%, 
+      #240d3a 85%, 
+      #080312 100%
+    );
+  background-size: 140% 140%;
+  box-shadow: 
+    inset 0 4px 16px rgba(233, 179, 255, 0.16), 
+    inset 0 -6px 20px rgba(103, 28, 166, 0.25),
+    0 16px 40px -10px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(176, 112, 230, 0.18);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.velvet-pillow:hover {
+  box-shadow: 
+    inset 0 4px 22px rgba(233, 179, 255, 0.25), 
+    inset 0 -6px 24px rgba(103, 28, 166, 0.35),
+    0 24px 50px -12px rgba(0, 0, 0, 0.95);
+  border-color: rgba(176, 112, 230, 0.35);
+}
+
+.velvet-rope-vip {
+  border: 2px solid transparent !important;
+  background: 
+    linear-gradient(#080312, #080312) padding-box,
+    repeating-linear-gradient(
+      -45deg,
+      #b070e6,
+      #ebd5f7 3px,
+      #4f6f96 6px,
+      #7091bd 9px,
+      #b070e6 12px
+    ) border-box !important;
+  box-shadow: 
+    0 10px 30px -8px rgba(176, 112, 230, 0.3),
+    inset 0 0 15px rgba(176, 112, 230, 0.15) !important;
+}
+
+.pillow-shadow {
+  box-shadow: 
+    inset 0 0 18px rgba(233, 179, 255, 0.08),
+    0 20px 48px -12px rgba(0, 0, 0, 0.95);
+}
+
+.vip-badge {
+  background: linear-gradient(135deg, #160a26 0%, #080312 100%);
+  border: 1px solid rgba(176, 112, 230, 0.3);
+  box-shadow: 
+    0 0 12px rgba(176, 112, 230, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  color: #ebd5f7;
 }
 
 
